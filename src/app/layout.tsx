@@ -2,10 +2,10 @@ import './globals.css'
 
 import type { Metadata } from "next";
 
-const APP_NAME = "PWA App";
-const APP_DEFAULT_TITLE = "My Awesome PWA App";
-const APP_TITLE_TEMPLATE = "%s - PWA App";
-const APP_DESCRIPTION = "Best PWA app in the world!";
+const APP_NAME = "Inteligencias Artificiais";
+const APP_DEFAULT_TITLE = "Inteligencias Artificiais";
+const APP_TITLE_TEMPLATE = "%s - Inteligencias Artificiais";
+const APP_DESCRIPTION = "Inteligencias Artificiais para Crianças!";
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -59,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='m-0 p-0'>
       <body>{children}</body>
     </html>
   )
