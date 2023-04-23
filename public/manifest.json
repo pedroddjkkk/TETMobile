@@ -23,6 +23,8 @@
   "theme_color": "#FFFFFF",
   "background_color": "#FFFFFF",
   "start_url": "/",
-  "display": "standalone",
-  "orientation": "portrait"
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "lang": "pt",
+  "display_override": ["window-controls-overlay"]
 }
