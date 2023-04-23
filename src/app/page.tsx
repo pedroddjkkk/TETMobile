@@ -22,14 +22,14 @@ export default function Home() {
                 <div className='flex justify-center items-center flex-col'>
                   <p className='text-3xl text-center w-10/12 text-white'>Decole para o mundo das <span className='text-pink-500'>IAs</span>!</p>
                   <p className='pt-6 w-10/12 text-center text-slate-200'>Descubra uma nova forma de utilizar as máquinas para pensar e resolver problemas</p>
+                  <AiOutlineDown className='text-white w-16 h-16 hover:cursor-pointer' onClick={() => fullpageApi.moveSectionDown()} />
                 </div>
-                <AiOutlineDown className='text-white w-16 h-16 hover:cursor-pointer self-center' onClick={() => fullpageApi.moveSectionDown()} />
               </div>
               <div className="section w-screen h-screen flex justify-center items-center" style={{backgroundColor: "#392378"}}>
-                <p>Section 2</p>
+                <p>Segunda Seção</p>
               </div>
-              <div className="section w-screen h-screen flex justify-center" style={{backgroundColor: "#392378"}}>
-                <p>Section 2</p>
+              <div className="section w-screen h-screen flex justify-center items-center" style={{backgroundColor: "#392378"}}>
+                <p>Terceira Seção</p>
               </div>
             </ReactFullpage.Wrapper>
           );
