@@ -1,9 +1,11 @@
 "use client"
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { Inter, Kanit } from 'next/font/google'
+import { AiOutlineDown } from 'react-icons/ai'
 import ReactFullpage from '@fullpage/react-fullpage';
+import "./style.css"
 
 const inter = Inter({ subsets: ['latin'] })
+const kanit = Kanit({ weight: "600", subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -16,11 +18,16 @@ export default function Home() {
         render={({ state, fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
-              <div className="section bg-pink-50 w-screen h-screen flex justify-center items-center">
-                <p>Section 1 (welcome to fullpage.js)</p>
-                <button onClick={() => fullpageApi.moveSectionDown()}>
-                  Click me to move down
-                </button>
+              <div className={"section bg-pink-50 w-screen h-screen first-page flex justify-center items-center " + kanit.className}>
+                <div className='flex justify-center items-center flex-col'>
+                  <div className='flex justify-center items-center flex-col'>
+                    <p className='text-3xl text-center w-10/12 text-white'>Decole para o mundo das <span className='text-pink-500'>IAs</span>!</p>
+                    <p className='pt-6 w-10/12 text-center text-slate-200'>Descubra uma nova forma de utilizar as máquinas para pensar e resolver problemas</p>
+                  </div>
+                  <div className=''>
+                    <AiOutlineDown className=' text-white w-16 h-16 hover:cursor-pointer' onClick={() => fullpageApi.moveSectionDown()} />
+                  </div>
+                </div>
               </div>
               <div className="section bg-slate-700 w-screen h-screen flex justify-center items-center">
                 <p>Section 2</p>
