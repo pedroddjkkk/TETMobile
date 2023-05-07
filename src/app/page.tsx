@@ -2,6 +2,7 @@
 import { Inter, Kanit } from 'next/font/google'
 import { AiOutlineDown } from 'react-icons/ai'
 import ReactFullpage from '@fullpage/react-fullpage';
+import "./astronauta.png"
 import "./style.css"
 
 const inter = Inter({ subsets: ['latin'] })
@@ -20,15 +21,19 @@ export default function Home() {
             <ReactFullpage.Wrapper>
               <div className={"section bg-pink-50 w-screen h-screen first-page flex justify-center items-center flex-col " + kanit.className}>
                 <div className='flex justify-center items-center flex-col'>
-                  <p className='text-3xl text-center w-10/12 text-white'>Decole para o mundo das <span className='text-pink-500'>IAs</span>!</p>
-                  <p className='pt-6 w-10/12 text-center text-slate-200'>Descubra uma nova forma de utilizar as máquinas para pensar e resolver problemas</p>
-                  <AiOutlineDown className='text-white w-16 h-16 hover:cursor-pointer' onClick={() => fullpageApi.moveSectionDown()} />
+                  <p className='text-6xl text-center w-10/12 text-white drop-shadow-xl'>EXPLORE O MUNDO DAS  <span className='text-pink-500 drop-shadow-2xl'>IAs</span>!</p>
+                  <button onClick={() => fullpageApi.moveSectionDown()} className='bg-[#d83eff] flex items-center p-2 rounded-md my-12 outline-white outline-8 outline active:bg-[#ac31cc]'>
+                    <p className='text-3xl text-white px-6'>INICIAR</p>
+                    <AiOutlineDown className='text-white w-16 h-14 hover:cursor-pointer mx-6'/>
+                  </button>
                 </div>
               </div>
-              <div className="section w-screen h-screen flex justify-center items-center" style={{backgroundColor: "#392378"}}>
-                <p>Segunda Seção</p>
+              <div className="section w-screen h-screen flex justify-center items-center second-page">
+                <div>
+                  <img src="./astronauta.png" alt="astronauta" />
+                </div>
               </div>
-              <div className="section w-screen h-screen flex justify-center items-center" style={{backgroundColor: "#392378"}}>
+              <div className="section w-screen h-screen flex justify-center items-center third-page">
                 <p>Terceira Seção</p>
               </div>
             </ReactFullpage.Wrapper>
