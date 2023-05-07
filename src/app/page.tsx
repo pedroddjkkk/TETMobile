@@ -4,6 +4,9 @@ import { AiOutlineDown } from 'react-icons/ai'
 import ReactFullpage from '@fullpage/react-fullpage';
 import Image from 'next/image'
 import astronauta from "./astronauta.png"
+import balao from "./balao.png"
+import abacaxi from "./abacaxi.png"
+import maca from "./maca.png"
 import "./style.css"
 import React from 'react';
 
@@ -49,15 +52,30 @@ export default function Home() {
                   fullpageApi.moveSectionDown()
                 }
               }}>
-                <div className='flex flex-col'>
-                  <div className='bg-white outline outline-4 outline-black w-72 h-72 rounded-full self-end mt-6 flex justify-center items-center text-3xl font-bold drop-shadow-2xl text-center'>
+                <div className='flex flex-col overflow-hidden'>
+                  <div className='bg-white outline outline-4 outline-black w-72 h-72 rounded-full self-end mt-6 flex justify-center items-center text-3xl font-bold drop-shadow-2xl text-center overflow-hidden'>
                     {currentText < textos.length ? textos[currentText] : null}
                   </div>
                   <Image src={astronauta} alt="astronauta"/>
                 </div>
               </div>
-              <div className="section w-screen h-screen flex justify-center items-center third-page">
-                <p>Terceira Seção</p>
+              <div className="section w-screen h-screen flex justify-center items-center third-page overflow-hidden">
+                <div className='flex flex-col justify-between items-center w-screen h-screen'>
+                  <div className='flex flex-row justify-between items-center w-11/12 pt-20'>
+                    <div className='w-40 h-40 flex items-center justify-center bg-white outline outline-4 outline-black rounded-full'>
+                      <Image src={abacaxi} alt="abacaxi" width={150} height={150}/>
+                    </div>
+                    <div className='w-40 h-40 flex items-center justify-center bg-white outline outline-4 outline-black rounded-full'>
+                      <Image src={maca} alt="balao" width={130} height={130}/>
+                    </div>
+                  </div>  
+                  <div className='self-start flex flex-col w-full'>
+                    <div className='bg-white outline outline-4 outline-black w-60 rounded-full self-end mt-6 flex justify-center items-center text-3xl font-bold drop-shadow-2xl text-center overflow-hidden mr-2'>
+                      <p>ME ENSINE! <br /> QUAL É A MAÇÃ?</p>
+                    </div>
+                    <Image src={astronauta} alt="astronauta" width={300} height={100}/>
+                  </div>
+                </div>
               </div>
             </ReactFullpage.Wrapper>
           );

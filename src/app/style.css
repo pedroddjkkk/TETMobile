@@ -9,3 +9,7 @@
 .third-page{
   background-image: url("./fundo.jpg") !important;
 }
+
+.balao-fundo{
+  background-image: url("./balao175.png") !important;
+}
