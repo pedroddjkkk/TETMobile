@@ -40,7 +40,7 @@ export default function Home() {
     {
       correctImage: aviao,
       wrongImage: foguete,
-      text: "QUAL É O AVIÃO?"
+      text: "QUAL É O FOGUETE?"
     },
     {
       correctImage: cat,
