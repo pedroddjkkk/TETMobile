@@ -70,7 +70,7 @@ export default function Home() {
                     </div>
                   </div>  
                   <div className='self-start flex flex-col w-full'>
-                    <div className='bg-white outline outline-4 outline-black w-60 rounded-full self-end mt-6 flex justify-center items-center text-3xl font-bold drop-shadow-2xl text-center overflow-hidden mr-2'>
+                    <div className='bg-white outline outline-4 outline-black w-60 rounded-full self-end mt-6 flex justify-center items-center text-3xl font-bold drop-shadow-2xl text-center overflow-hidden mr-2 p-6'>
                       <p>ME ENSINE! <br /> QUAL É A MAÇÃ?</p>
                     </div>
                     <Image src={astronauta} alt="astronauta" width={300} height={100}/>
