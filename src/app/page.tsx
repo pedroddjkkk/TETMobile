@@ -20,6 +20,8 @@ const kanit = Kanit({ weight: "600", subsets: ['latin'] })
 export default function Home() {
   const [currentText, setCurrentText] = React.useState(0);
   const [currentImage, setCurrentImage] = React.useState(0);
+  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [result, setResult] = React.useState([] as boolean[]);
 
   const textos = [
     "OI O MEU NOME É ASTRONAUTA FUINHA!",
@@ -49,6 +51,45 @@ export default function Home() {
     }
   ]
 
+  const finalQuestions = [
+    {
+      question: "O QUE É UMA IA?",
+      correctAnswer: "É UMA MAQUINA QUE APRENDE!",
+      wrongAnswer: "É UM ROBO!"
+    },
+    {
+      question: "O QUE A IA CONSEGUE FAZER?",
+      correctAnswer: "AJUDAR A GENTE A RESOLVER PROBLEMAS!",
+      wrongAnswer: "AJUDAR A GENTE A BRINCAR!"
+    },
+    {
+      question: "O QUE A IA CONSEGUE APRENDER?",
+      correctAnswer: "TUDO QUE A GENTE ENSINAR!",
+      wrongAnswer: "NADA!"
+    },
+  ]
+
+  let resultJSON = {
+    questions: [
+      {
+        "question": "O QUE É UMA IA?",
+        "correctAnswer": "É UMA MAQUINA QUE APRENDE!",
+        "wrongAnswer": "É UM ROBO!"
+      },
+      {
+        "question": "O QUE A IA CONSEGUE FAZER?",
+        "correctAnswer": "AJUDAR A GENTE A RESOLVER PROBLEMAS!",
+        "wrongAnswer": "AJUDAR A GENTE A BRINCAR!"
+      },
+      {
+        "question": "O QUE A IA CONSEGUE APRENDER?",
+        "correctAnswer": "TUDO QUE A GENTE ENSINAR!",
+        "wrongAnswer": "NADA!"
+      },
+    ],
+    result: result
+  }
+
   function onClickImage(fullpageApi: any) {
     if (currentImage < images.length - 1) {
       setCurrentImage(currentImage + 1)
@@ -56,6 +97,18 @@ export default function Home() {
       fullpageApi.moveSectionDown()
     }
   }
+
+  function onClickQuestion(correct: boolean){
+    result.push(correct)
+    setResult(result)
+    if (currentQuestion < finalQuestions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1)
+    } else {
+      console.log(resultJSON)
+      alert("FIM")
+    }
+  }
+
   return (
     <main className="">
       {/* @ts-expect-error */}
@@ -112,11 +165,21 @@ export default function Home() {
                 </div>
               </div>
               <div className="section w-screen h-screen flex justify-center items-center second-page">
-                <div className='w-screen h-screen flex flex-col justify-center items-center'>
-                  <div className='bg-white outline outline-4 outline-black w-64 h-64 rounded-full self-end mt-6 flex justify-center items-center text-3xl font-bold drop-shadow-2xl text-center overflow-hidden'>
-                    APRENDI COM VOCÊ! <br /> OBRIGADO!
+                <div className='w-screen h-screen flex flex-col justify-start items-start'>
+                  <div className='flex items-start'>
+                    <Image src={astronauta} alt="astronauta" className='w-52 h-52' />
+                    <div className='bg-white outline outline-4 outline-black w-64 h-40 rounded-full self-end flex justify-center items-center text-3xl font-bold drop-shadow-2xl text-center overflow-hidden'>
+                      {finalQuestions[currentQuestion]?.question}
+                    </div>
                   </div>
-                  <Image src={astronauta} alt="astronauta" />
+                  <div className='self-center mt-8'>
+                    <div className='bg-white outline outline-4 outline-black w-56 h-40 rounded-full self-end flex justify-center items-center text-3xl font-bold drop-shadow-2xl text-center overflow-hidden active:bg-green-500 transition' onClick={() => onClickQuestion(true)}>
+                      {finalQuestions[currentQuestion]?.correctAnswer}
+                    </div>
+                    <div className='bg-white outline outline-4 outline-black w-56 h-40 rounded-full self-end flex justify-center mt-4 items-center text-3xl font-bold drop-shadow-2xl text-center overflow-hidden active:bg-red-500 transition' onClick={() => onClickQuestion(false)}>
+                      {finalQuestions[currentQuestion]?.wrongAnswer}
+                    </div>
+                  </div>
                 </div>
               </div>
             </ReactFullpage.Wrapper>
